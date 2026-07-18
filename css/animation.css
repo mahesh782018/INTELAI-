@@ -1,0 +1,325 @@
+/* =====================================
+   ANIMATION.CSS
+   INTELAI Solutions Private Limited
+=====================================*/
+
+/* Fade In */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide Up */
+
+.slide-up {
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Slide Left */
+
+.slide-left {
+
+    animation: slideLeft 1s ease;
+
+}
+
+@keyframes slideLeft {
+
+    from {
+
+        opacity: 0;
+        transform: translateX(-80px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+}
+
+/* Slide Right */
+
+.slide-right {
+
+    animation: slideRight 1s ease;
+
+}
+
+@keyframes slideRight {
+
+    from {
+
+        opacity: 0;
+        transform: translateX(80px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+}
+
+/* Zoom In */
+
+.zoom-in {
+
+    animation: zoomIn .8s ease;
+
+}
+
+@keyframes zoomIn {
+
+    from {
+
+        opacity: 0;
+        transform: scale(.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: scale(1);
+
+    }
+
+}
+
+/* Floating Effect */
+
+.float {
+
+    animation: floating 3s infinite ease-in-out;
+
+}
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* Rotate */
+
+.rotate:hover {
+
+    transform: rotate(5deg);
+    transition: .4s;
+
+}
+
+/* Card Hover */
+
+.card {
+
+    transition: .4s;
+
+}
+
+.card:hover {
+
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+
+}
+
+/* Button Hover */
+
+.hero-btn,
+.btn {
+
+    transition: .4s;
+
+}
+
+.hero-btn:hover,
+.btn:hover {
+
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
+
+}
+
+/* Image Hover */
+
+img {
+
+    transition: .4s;
+
+}
+
+img:hover {
+
+    transform: scale(1.03);
+
+}
+
+/* Social Icons */
+
+.social-icons a {
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0d6efd;
+    color: #fff;
+    margin: 5px;
+    text-decoration: none;
+    transition: .4s;
+
+}
+
+.social-icons a:hover {
+
+    background: #ff9800;
+    transform: rotate(360deg);
+
+}
+
+/* Fade Animation Delay */
+
+.delay-1 {
+
+    animation-delay: .2s;
+
+}
+
+.delay-2 {
+
+    animation-delay: .4s;
+
+}
+
+.delay-3 {
+
+    animation-delay: .6s;
+
+}
+
+.delay-4 {
+
+    animation-delay: .8s;
+
+}
+
+/* Pulse */
+
+.pulse {
+
+    animation: pulse 2s infinite;
+
+}
+
+@keyframes pulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.05);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+/* Bounce */
+
+.bounce {
+
+    animation: bounce 2s infinite;
+
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-12px);
+
+    }
+
+}
+
+/* Loading Spinner */
+
+.spinner {
+
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ddd;
+    border-top: 5px solid #0d6efd;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+
+}
+
+@keyframes spin {
+
+    100% {
+
+        transform: rotate(360deg);
+
+    }
+
+}
