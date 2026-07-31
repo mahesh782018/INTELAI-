@@ -19,7 +19,7 @@
 <body>
 
     <!-- Top Header -->
-    <script src="js/form.js"></script>
+
 
     <div class="top-header">
 
@@ -103,21 +103,22 @@
 
             </div>
 
-            <form style="max-width:800px;margin:auto;">
+            <form id="admissionForm" enctype="multipart/form-data" style="max-width:800px;margin:auto;">
 
-                <input type="text" placeholder="Full Name" required style="width:100%;padding:15px;margin-bottom:15px;">
-
-                <input type="email" placeholder="Email Address" required
+                <input type="text" name="fullname" placeholder="Full Name" required
                     style="width:100%;padding:15px;margin-bottom:15px;">
 
-                <input type="tel" placeholder="Mobile Number" required
+                <input type="email" name="email" placeholder="Email Address" required
                     style="width:100%;padding:15px;margin-bottom:15px;">
 
-                <input type="date" style="width:100%;padding:15px;margin-bottom:15px;">
+                <input type="tel" name="mobile" placeholder="Mobile Number" required
+                    style="width:100%;padding:15px;margin-bottom:15px;">
 
-                <select style="width:100%;padding:15px;margin-bottom:15px;">
+                <input type="date" name="dob" required style="width:100%;padding:15px;margin-bottom:15px;">
 
-                    <option>Select Course</option>
+                <select name="course" required style="width:100%;padding:15px;margin-bottom:15px;">
+
+                    <option value="">Select Course</option>
 
                     <option>Python Full Stack Development</option>
                     <option>Java Full Stack Development</option>
@@ -134,9 +135,9 @@
 
                 </select>
 
-                <select style="width:100%;padding:15px;margin-bottom:15px;">
+                <select name="qualification" required style="width:100%;padding:15px;margin-bottom:15px;">
 
-                    <option>Highest Qualification</option>
+                    <option value="">Highest Qualification</option>
 
                     <option>Intermediate</option>
                     <option>Diploma</option>
@@ -149,9 +150,9 @@
 
                 </select>
 
-                <select style="width:100%;padding:15px;margin-bottom:15px;">
+                <select name="batch" required style="width:100%;padding:15px;margin-bottom:15px;">
 
-                    <option>Preferred Batch</option>
+                    <option value="">Preferred Batch</option>
 
                     <option>Morning Batch</option>
                     <option>Afternoon Batch</option>
@@ -160,16 +161,15 @@
 
                 </select>
 
-                <textarea rows="5" placeholder="Address" style="width:100%;padding:15px;margin-bottom:15px;"></textarea>
+                <textarea name="address" rows="5" placeholder="Address" required
+                    style="width:100%;padding:15px;margin-bottom:15px;"></textarea>
 
                 <label><strong>Upload Resume (Optional)</strong></label>
 
-                <input type="file" style="width:100%;padding:15px;margin-bottom:20px;">
+                <input type="file" name="resume" style="width:100%;padding:15px;margin-bottom:20px;">
 
                 <button type="submit" class="hero-btn">
-
                     Submit Application
-
                 </button>
 
             </form>
@@ -290,6 +290,9 @@ gap:25px;">
 
     </footer>
 
+
+
+    <script src="js/admission.js"></script>
     <script src="js/script.js"></script>
 
 </body>

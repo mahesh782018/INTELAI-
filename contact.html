@@ -176,48 +176,37 @@ gap:40px;">
 
                     <br>
 
-                    <form>
+                    <form id="contactForm">
 
-                        <input type="text" placeholder="Your Name" required
+                        <input type="text" name="name" placeholder="Your Name" required
                             style="width:100%;padding:12px;margin-bottom:15px;">
 
-                        <input type="email" placeholder="Email Address" required
+                        <input type="email" name="email" placeholder="Email Address" required
                             style="width:100%;padding:12px;margin-bottom:15px;">
 
-                        <input type="text" placeholder="Phone Number" required
+                        <input type="text" name="phone" placeholder="Phone Number" required
                             style="width:100%;padding:12px;margin-bottom:15px;">
 
-                        <select style="width:100%;padding:12px;margin-bottom:15px;">
+                        <select name="course" style="width:100%;padding:12px;margin-bottom:15px;">
 
-                            <option>Select Course</option>
-
+                            <option value="">Select Course</option>
                             <option>Python Full Stack</option>
-
                             <option>Java Full Stack</option>
-
                             <option>Data Analytics</option>
-
                             <option>Data Science</option>
-
                             <option>Artificial Intelligence</option>
-
                             <option>Machine Learning</option>
-
                             <option>Cyber Security</option>
-
                             <option>AWS Cloud Computing</option>
-
                             <option>CCNA</option>
 
                         </select>
 
-                        <textarea rows="6" placeholder="Message"
+                        <textarea name="message" rows="6" placeholder="Message"
                             style="width:100%;padding:12px;margin-bottom:15px;"></textarea>
 
                         <button class="hero-btn" type="submit">
-
                             Submit Enquiry
-
                         </button>
 
                     </form>
@@ -316,6 +305,8 @@ gap:40px;">
 
     </footer>
 
+
+    <script src="js/form.js"></script>
     <script src="js/script.js"></script>
 
 </body>

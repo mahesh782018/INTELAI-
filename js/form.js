@@ -1,105 +1,74 @@
 // ==========================================
 // INTELAI Solutions Private Limited
-// Form Validation
-// form.js
+// Contact Form Submit + Validation
 // ==========================================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const forms = document.querySelectorAll("form");
+    const form = document.getElementById("contactForm");
 
-    forms.forEach(function (form) {
+    if (!form) return;
 
-        form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
 
-            e.preventDefault();
+        e.preventDefault();
 
-            const name = form.querySelector('input[type="text"]');
-            const email = form.querySelector('input[type="email"]');
-            const phone = form.querySelector('input[type="tel"], input[placeholder*="Phone"]');
-            const message = form.querySelector("textarea");
+        const data = {
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            phone: form.phone.value.trim(),
+            course: form.course.value,
+            message: form.message.value.trim()
+        };
 
-            // Name Validation
-            if (name && name.value.trim() === "") {
-                alert("Please enter your name.");
-                name.focus();
-                return;
-            }
+        // Validation
+        if (data.name === "") {
+            alert("Please enter your name.");
+            return;
+        }
 
-            // Email Validation
-            if (email && !validateEmail(email.value)) {
-                alert("Please enter a valid email address.");
-                email.focus();
-                return;
-            }
+        if (!validateEmail(data.email)) {
+            alert("Please enter a valid email.");
+            return;
+        }
 
-            // Phone Validation
-            if (phone) {
+        if (data.phone.length !== 10) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+        }
 
-                const phoneNumber = phone.value.replace(/\D/g, "");
+        if (data.message === "") {
+            alert("Please enter your message.");
+            return;
+        }
 
-                if (phoneNumber.length !== 10) {
-                    alert("Please enter a valid 10-digit mobile number.");
-                    phone.focus();
-                    return;
-                }
-            }
+        try {
 
-            // Message Validation
-            if (message && message.value.trim() === "") {
-                alert("Please enter your message.");
-                message.focus();
-                return;
-            }
+            const response = await fetch("http://127.0.0.1:5000/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
 
-            alert("🎉 Thank you! Your enquiry has been submitted successfully.\n\nOur team will contact you shortly.");
+            const result = await response.json();
+
+            alert(result.message);
 
             form.reset();
 
-        });
+        } catch (error) {
+            console.error(error);
+            alert("Unable to connect to the server.");
+        }
 
     });
 
 });
 
-// Email Validation Function
 
 function validateEmail(email) {
-
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     return pattern.test(email);
-
 }
-
-// Allow Only Numbers in Phone Field
-
-document.addEventListener("input", function (e) {
-
-    if (e.target.type === "tel") {
-
-        e.target.value = e.target.value.replace(/[^0-9]/g, "");
-
-    }
-
-});
-
-// Highlight Input Field
-
-const inputs = document.querySelectorAll("input, textarea, select");
-
-inputs.forEach(input => {
-
-    input.addEventListener("focus", function () {
-
-        this.style.border = "2px solid #0d6efd";
-
-    });
-
-    input.addEventListener("blur", function () {
-
-        this.style.border = "1px solid #ccc";
-
-    });
-
-});
